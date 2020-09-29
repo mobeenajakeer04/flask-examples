@@ -1,9 +1,9 @@
 steps:
-  - name: 'gcr.io/cloud-builders/pip'
-    args: ['install','-r','requirements.txt']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['pip','install','-r','requirements.txt']
 
-  - name: 'gcr.io/cloud-builders/pytest'
-    args: ['--cov-report term-missing','--cov=app/','app/tests/']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['pytest','--cov-report term-missing','--cov=app/','app/tests/']
 
-  - name: 'gcr.io/cloud-builders/pylint'
-    args: ['app/']
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['pylint','app/']
